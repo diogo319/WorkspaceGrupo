@@ -138,7 +138,7 @@ public class T1JFrame extends JFrame {
 			public void actionPerformed(ActionEvent e) {
 				Process p = null;
 				try {
-					p = Runtime.getRuntime().exec("java -jar C:\\Users\\diogo\\Desktop\\Vaguear.jar");
+					p = Runtime.getRuntime().exec("java -jar C:\\Users\\Diogo\\Desktop\\Isel\\5ºSemestre\\FSO\\Vaguear.jar");
 				} catch (IOException e1) {
 					e1.printStackTrace();
 				}
@@ -165,16 +165,16 @@ public class T1JFrame extends JFrame {
 			public void actionPerformed(ActionEvent e) {
 				Process p = null;
 				try {
-					p = Runtime.getRuntime().exec("java -jar C:\\Users\\diogo\\DesktopEvitarObstaculos.jar");
+					p = Runtime.getRuntime().exec("java -jar C:\\Users\\Diogo\\Desktop\\Isel\\5ºSemestre\\FSO\\EvitarObstaculos.jar");
 				} catch (IOException e1) {
 					e1.printStackTrace();
 				}
 				if(p != null) {
-					myPrint("Evitar obstáculos lançado");
+					myPrint("Vaguear lançado");
 					chckbxEvitarobstaculos.setEnabled(true);
 					try {
 						p.waitFor();
-						myPrint("Evitar obstáculos terminou");
+						myPrint("Vaguear terminou");
 						chckbxEvitarobstaculos.setEnabled(true);
 						chckbxEvitarobstaculos.setSelected(false);
 					} catch (InterruptedException e1) {

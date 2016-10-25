@@ -4,13 +4,13 @@
 	</section>
 	<section name="FatJarPackageWizard">
 		<item value="C:\Users\diogo\Desktop\LEIM\3º Semestre\FSO\WorkspaceGrupo" key="FatJarPackageWizardPage.ANTSCRIPT_LOCATION"/>
-		<item value="EvitarObstaculos - Trabalho1" key="FatJarPackageWizardPage.LAUNCH_CONFIGURATION_SELECTION_NAME"/>
-		<item value="C:\Users\diogo\Desktop\EvitarObstaculos.jar" key="FatJarPackageWizardPage.DESTINATION_PATH_SELECTION"/>
+		<item value="Vaguear - Trabalho1" key="FatJarPackageWizardPage.LAUNCH_CONFIGURATION_SELECTION_NAME"/>
+		<item value="C:\Users\diogo\Desktop\Vaguear.jar" key="FatJarPackageWizardPage.DESTINATION_PATH_SELECTION"/>
 		<item value="false" key="FatJarPackageWizardPage.ANTSCRIPT_SAVE"/>
 		<item value="1" key="FatJarPackageWizardPage.LIBRARY_HANDLING"/>
 		<list key="FatJarPackageWizardPage.DESTINATION_NAMES_ID">
-			<item value="C:\Users\diogo\Desktop\EvitarObstaculos.jar"/>
 			<item value="C:\Users\diogo\Desktop\Vaguear.jar"/>
+			<item value="C:\Users\diogo\Desktop\EvitarObstaculos.jar"/>
 			<item value="C:\Users\diogo\Desktop\trabalho1.jar"/>
 		</list>
 		<list key="FatJarPackageWizardPage.ANTSCRIPT_LOCATION_HISTORY">
