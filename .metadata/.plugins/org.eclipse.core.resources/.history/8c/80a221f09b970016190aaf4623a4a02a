@@ -1,0 +1,6 @@
+
+public class MyRobotLego {
+	public void Reta(int d){
+		System.out.println("Reta " + d + " cm");
+	}
+}

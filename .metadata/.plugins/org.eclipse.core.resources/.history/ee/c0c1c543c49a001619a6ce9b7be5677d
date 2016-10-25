@@ -1,0 +1,15 @@
+import java.io.IOException;
+
+public class Testes {
+	
+	
+	
+	public static void main(String[] Args){
+		ProcessBuilder pb = new ProcessBuilder("C:\\Users\\diogo\\Desktop\\EvitarObstaculos.jar");
+		Process p = null;
+		try{
+			p = pb.start();
+		
+		}catch(IOException e){System.out.println("erro");}
+	}
+}

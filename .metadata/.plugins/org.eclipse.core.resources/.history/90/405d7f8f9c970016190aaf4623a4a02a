@@ -1,0 +1,31 @@
+
+public class MyRobotLego {
+	
+	public boolean OpenNXT(){
+		return true;
+	}
+	
+	public void CloseNXT(){
+		
+	}
+	
+	public void Reta(int d){
+		System.out.println("Reta " + d + " cm");
+	}
+	
+	public void CurvarDireita(int angulo, int raio){
+		
+	}
+	
+	public void SetSensorTouch(int porto){
+		
+	}
+	
+	public int Sensor(int porto){
+		double f = Math.random();
+		if(f < 0.5){
+			return 0;
+		}
+		return 1;
+	}
+}

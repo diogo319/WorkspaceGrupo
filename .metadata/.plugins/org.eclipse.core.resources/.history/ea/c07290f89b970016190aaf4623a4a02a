@@ -1,0 +1,9 @@
+
+public class MyRobotLego {
+	
+	public boolean OpenNXT();
+	
+	public void Reta(int d){
+		System.out.println("Reta " + d + " cm");
+	}
+}
