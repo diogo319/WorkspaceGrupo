@@ -1,0 +1,145 @@
+
+public class EvitarObstaculos {
+	
+	//minhas vars
+	static String nomeRobot;
+	static Boolean openNXT, b;
+	static RobotLego robot;
+	boolean feito;
+	int offsetMotorEsquerdo, offsetMotorDireito, raioCurva, anguloCurva, sensor, dRetaguarda, tCurva;
+	long agora, sensorTS;
+	float vRobot;
+	
+	
+	
+	public void ligar(){
+		openNXT = robot.OpenNXT(nomeRobot);
+		if(openNXT){
+			configuracao();
+		}
+		else{
+			fechar();
+		}
+	}
+	
+	public void fechar(){
+		feito = true;
+	}
+	
+	/*
+	 * Inicializa todas as variaveis necessarias
+	 */
+	public void configuracao(){
+		
+		robot.SetSensorTouch(RobotLego.S_2);
+		feito = false;
+		openNXT = false;
+		offsetMotorDireito = 1;
+		offsetMotorEsquerdo = 0;
+		
+		sensorTS = System.currentTimeMillis();
+		
+		robot.SetSensorTouch(RobotLego.S_2);
+		vRobot = 0.02f;
+		tCurva = 100;
+		raioCurva = 90;
+		anguloCurva = 0;
+		dRetaguarda = -15;
+		sensor();
+	}
+	
+	public void sensor(){
+		sensor = robot.Sensor(RobotLego.S_2);
+		if(sensor == 1){
+			obstaculo();
+		}
+		else{
+			parar();
+		}
+	}
+	
+	public void obstaculo(){
+		sensorTS = System.currentTimeMillis();
+		robot.Reta(dRetaguarda);
+		robot.CurvarEsquerda(raioCurva, anguloCurva);
+		accao();
+	}
+	
+	public void accao(){
+		agora = System.currentTimeMillis();
+		b = (agora-sensorTS >= (vRobot/dRetaguarda) + tCurva);
+		if(b){
+			sensor();
+		}
+		else{
+			dormir();
+		}
+	}
+	
+	public void dormir(){
+		float tempoDormir = ((vRobot/dRetaguarda) + tCurva ) - (agora-sensorTS);
+		try {
+			Thread.sleep((long)tempoDormir);
+		} catch (InterruptedException e) {
+			e.printStackTrace();
+		}
+		accao();
+	}
+	
+	public void parar(){
+		robot.Parar(true);
+		try {
+			Thread.sleep(100);
+		} catch (InterruptedException e) {
+			e.printStackTrace();
+		}
+		robot.CloseNXT();
+		fechar();
+	}
+	
+	public void ajustarVM(){
+		robot.AjustarVMD(offsetMotorDireito);
+		robot.AjustarVME(offsetMotorEsquerdo);
+	}
+	
+	
+	
+	public void run(){
+		while(!feito){
+			nomeRobot = "Guia4";
+			ligar();
+		}
+	}
+	
+	
+	public EvitarObstaculos(){
+		configuracao();
+		ajustarVM();
+		
+		//TODO
+		sensor = robot.Sensor(RobotLego.S_2);
+		
+		while (sensor == 1){
+			desviar();
+		}
+		
+		robot.Parar(true);
+		try {
+			Thread.sleep(100);
+		} catch (InterruptedException e) {
+			e.printStackTrace();
+		}
+		
+		robot.CloseNXT();
+	}
+	
+	
+	
+	
+	
+	
+	public static void main(String args[]){
+		EvitarObstaculos eo = new EvitarObstaculos();
+		eo.run();
+	}
+}
